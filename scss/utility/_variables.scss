@@ -1,0 +1,39 @@
+
+// Dimentions
+
+$site-width: 1200px;
+$gutter: 40px;
+$cols: 12;
+
+// Breakpoints
+
+$desktop: #{$site-width + $gutter * 2};
+$tablet: 1024px;
+$mobile: 768px;
+
+// Typography
+
+$fsb: 16px;
+$ffb: 'sans-serif';
+$ffa: 'sans';
+$lhb: 1.5;
+$lha: 1.25;
+
+// Colors
+
+$black: #000;
+$dark: #333;
+$grey: #777;
+$light: #aaa;
+$white: #fff;
+
+$red: #F15A5A;
+$yellow: #F0C419;
+$green: #4EBA6F;
+$blue: #2D95BF;
+$violet: #955BA5;
+
+$danger: $red;
+$warning: $yellow;
+$success: $green;
+$info: $blue;

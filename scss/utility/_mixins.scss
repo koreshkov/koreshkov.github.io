@@ -1,0 +1,14 @@
+
+// Responsive
+
+@mixin resp($width, $behavior: 'down') {
+    @if $behavior == 'down' {
+        @media screen and (max-width: $width - 1px) {
+            @content
+        }
+    } @else {
+        @media screen and (min-width: $width) {
+            @content
+        }
+    }
+}
