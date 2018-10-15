@@ -6,7 +6,7 @@
   "scripts": {
     "gulp": "gulp",
     "build": "NODE_ENV='production' gulp build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "NODE_ENV='development' gulp watch"
   },
   "repository": {
     "type": "git",
@@ -19,19 +19,32 @@
   },
   "homepage": "https://github.com/koreshkov/koreshkov.github.io#readme",
   "devDependencies": {
+    "autoprefixer": "^9.1.5",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
-    "browser-sync": "^2.24.6",
+    "browser-sync": "^2.24.7",
     "eslint": "^5.2.0",
-    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
     "gulp-csso": "^3.0.1",
     "gulp-if": "^2.0.2",
+    "gulp-plumber": "^1.2.0",
+    "gulp-postcss": "^8.0.0",
     "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
-    "webpack": "^4.16.2"
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^5.0.1",
+    "postcss-clearfix": "^2.0.1",
+    "webpack": "^4.19.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "vue": "^2.5.17",
+    "vue-meta": "^1.5.5",
+    "vue-resource": "^1.5.1",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  }
 }

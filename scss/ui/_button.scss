@@ -1,0 +1,66 @@
+// Button
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    border-width: $btn-border-width;
+    border-style: solid;
+    border-radius: $btn-border-radius;
+    justify-content: center;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity .2s;
+
+    @include add-btn-size();
+    @include add-btn-style();
+
+    opacity: .9;
+    &:hover { opacity: 1; }
+    &:active { opacity: .8};
+
+    // Primary & secondary buttons
+
+    &.is-primary {
+        @include add-btn-style(transparent, $dark, $white);
+
+        .is-color-invert & {
+            @include add-btn-style(currentColor, transparent, currentColor);
+        }
+    }
+
+    &.is-secondary {
+        @include add-btn-style($dark, $white, $dark);
+
+        .is-color-invert & {
+            @include add-btn-style($white, $dark, $white);
+        }
+    }
+
+    &.is-link {
+        @include add-btn-style(transparent, transparent, $dark);
+
+        .is-color-invert & {
+            @include add-btn-style(transparent, transparent, $white);
+        }
+    }
+
+    // Status buttons
+
+    &.is-danger {
+        @include add-btn-style(transparent, $danger, $white);
+    }
+
+    &.is-warning {
+        @include add-btn-style(transparent, $warning, $white);
+    }
+
+    &.is-success {
+        @include add-btn-style(transparent, $success, $white);
+    }
+
+    &.is-info {
+        @include add-btn-style(transparent, $info, $white);
+    }
+}

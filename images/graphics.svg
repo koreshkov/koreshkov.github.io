@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="70 650 100 100" enable-background="new 70 650 100 100" xml:space="preserve">
+<g id="beer">
+</g>
+<g id="graphics">
+	<circle fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" cx="120" cy="700" r="40"/>
+	<g>
+		<rect x="76" y="696" fill="#FFFFFF" width="8" height="8"/>
+		<path d="M83,697v6h-6v-6H83 M85,695h-2h-6h-2v2v6v2h2h6h2v-2v-6V695L85,695z"/>
+	</g>
+	<g>
+		<rect x="156" y="696" fill="#FFFFFF" width="8" height="8"/>
+		<path d="M163,697v6h-6v-6H163 M165,695h-2h-6h-2v2v6v2h2h6h2v-2v-6V695L165,695z"/>
+	</g>
+	<g>
+		<rect x="116" y="656" fill="#FFFFFF" width="8" height="8"/>
+		<path d="M123,657v6h-6v-6H123 M125,655h-2h-6h-2v2v6v2h2h6h2v-2v-6V655L125,655z"/>
+	</g>
+	<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="90" y1="660" x2="117" y2="660"/>
+	<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="123" y1="660" x2="150" y2="660"/>
+	<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="160" y1="670" x2="160" y2="697"/>
+	<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="80" y1="670" x2="80" y2="697"/>
+	<g>
+		<path d="M80,668c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S81.1,668,80,668L80,668z"/>
+	</g>
+	<g>
+		<path d="M90,658c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S91.1,658,90,658L90,658z"/>
+	</g>
+	<g>
+		<path d="M150,658c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S151.1,658,150,658L150,658z"/>
+	</g>
+	<g>
+		<path d="M160,668c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S161.1,668,160,668L160,668z"/>
+	</g>
+</g>
+<g id="photography">
+</g>
+<g id="github_1_">
+</g>
+<g id="linkedin_1_">
+</g>
+<g id="illustrator">
+</g>
+<g id="photoshop">
+</g>
+<g id="umbraco_1_">
+</g>
+<g id="mssql_1_">
+</g>
+<g id="dotnet_1_">
+</g>
+<g id="webpack_1_">
+</g>
+<g id="gulp_1_">
+</g>
+<g id="nodejs_1_">
+</g>
+<g id="js_1_">
+</g>
+<g id="css3">
+</g>
+<g id="html5_1_">
+</g>
+</svg>

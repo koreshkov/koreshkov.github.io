@@ -1,0 +1,15 @@
+
+//  Module RTE
+
+.module-rte {
+
+    & > :first-child,
+    & > :first-child :first-child {
+        margin-top: 0;
+    }
+
+    & > :last-child,
+    & > :last-child :last-child {
+        margin-bottom: 0;
+    }
+}

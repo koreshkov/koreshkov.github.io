@@ -6,20 +6,132 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 1rem 0;
+    margin: 2rem 0;
     font-family: $ffa;
-    line-height: $lhb;
+    font-weight: normal;
+
+    b {
+        color: $brand-red;
+        font-weight: inherit;
+    }
+}
+
+h1 {
+    margin-bottom: 6rem;
+    font-size: 9rem;
+    line-height: 10rem;
+}
+
+h2 {
+    font-size: 7rem;
+    line-height: 8rem;
+}
+
+h3 {
+    font-size: 4rem;
+    line-height: 5rem;
 }
 
 // Paragraph
 
 p {
-    margin: 1rem 0;
+    margin: 4rem 0;
 }
 
 // List
 
 ul,
 ol {
-    margin: 1rem 0;
+    margin: 4rem 0 4rem 4rem;
+
+    li:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+}
+
+a {
+    color: $brand-red;
+}
+
+.label {
+    display: block;
+    margin: 2rem 0;
+    font-size: 5rem;
+    line-height: 6rem;
+    font-family: $ffa;
+    font-weight: normal;
+}
+
+// Unit inver color
+
+.is-color-invert {
+    color: $white;
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+    }
+}
+
+// Story
+
+.story-year {
+    position: relative;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform $animation-duration, opacity $animation-duration;
+
+    .year {
+        position: absolute;
+        bottom: 50%;
+        left: -20%;
+        color: $white;
+        font-size: 50rem;
+        font-weight: 800;
+        letter-spacing: -50px;
+        line-height: .75;
+        transform-origin: 50% 100%;
+        transform: translate3d(-50%, 0, 0) rotate(-90deg);
+    }
+}
+
+// Skill
+
+.skill {
+
+    &-icon {
+        display: block;
+        width: 100px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    &-title {
+        text-align: center;
+    }
+}
+
+// Social links
+
+.social-link {
+    display: flex;
+    align-items: center;
+
+    & + & {
+        margin-top: 5rem;
+    }
+
+    &-icon {
+        display: block;
+        width: 80px;
+        margin-right: 5rem;
+    }
+
+    &-title {
+        margin: 0;
+    }
+
+    &-url {
+        margin: 0;
+    }
 }

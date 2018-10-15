@@ -1,0 +1,39 @@
+
+// Navigation
+
+.nav {
+    position: fixed;
+    top: 50%;
+    right: 30px;
+    z-index: 10;
+    transform: translateY(-50%);
+
+    ul {
+        list-style-type: none;
+    }
+
+    li:not(:last-child) {
+        margin-bottom: 30px;
+    }
+
+    a {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border: 1px solid currentColor;
+        border-radius: 50%;
+        color: inherit;
+        transition: transform .3s, background-color .3s, color .6s;
+
+        &.active {
+            background-color: currentColor;
+            transform: scale(.75, .75);
+        }
+    }
+
+    // Light
+
+    &.light {
+        color: $white;
+    }
+}

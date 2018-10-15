@@ -11,4 +11,18 @@
             @content
         }
     }
+};
+
+// Buttons
+
+@mixin add-btn-size($height: $btn-height, $border-width: $btn-border-width, $padding-x: $btn-padding-x) {
+    height: $btn-height;
+    padding: 0 calc(#{$btn-padding-x} - #{$btn-border-width});
+    border-width: $btn-border-width;
+}
+
+@mixin add-btn-style($border-color: $btn-border-color, $bg-color: $btn-bg-color, $text-color: $btn-text-color) {
+    border-color: $border-color;
+    background-color: $bg-color;
+    color: $text-color;
 }

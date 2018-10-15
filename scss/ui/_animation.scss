@@ -1,0 +1,64 @@
+
+// Animation duration
+
+$animation-duration: .3s;
+
+.scroll-enter-active,
+.scroll-leave-active {
+    transition: transform $animation-duration ease;
+}
+
+// Scroll fade
+
+.scroll-fade {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform $animation-duration, opacity $animation-duration;
+
+    .up .scroll-enter &,
+    .down .scroll-leave-to & {
+        opacity: 0 !important;
+        transform: translate3d(0, -50%, 0);
+    }
+
+    .down .scroll-enter &,
+    .up .scroll-leave-to & {
+        opacity: 0 !important;
+        transform: translate3d(0, 50%, 0);
+    }
+}
+
+// Slide left/right
+
+.slide-fade-left {
+    transform: translate3d(0, 0, 0);
+    transition: transform $animation-duration, opacity $animation-duration;
+
+    .scroll-enter &,
+    .scroll-leave-to & {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.slide-fade-right {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform $animation-duration, opacity $animation-duration;
+
+    .scroll-enter &,
+    .scroll-leave-to & {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+// Section backdrop
+
+.section {
+    &.scroll-enter,
+    &.scroll-leave-to, {
+        &::before {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}

@@ -1,21 +1,23 @@
 
 // Dimentions
 
-$site-width: 1200px;
+$container-width: 1200px;
 $gutter: 40px;
+$gutter-half: $gutter / 2;
 $cols: 12;
 
 // Breakpoints
 
-$desktop: #{$site-width + $gutter * 2};
+$desktop: #{$container-width + $gutter * 2};
 $tablet: 1024px;
 $mobile: 768px;
 
 // Typography
 
-$fsb: 16px;
-$ffb: 'sans-serif';
-$ffa: 'sans';
+$fb: 8px;
+$fsb: 2rem;
+$ffb: 'open sans',sans-serif;
+$ffa: 'oswald', sans;
 $lhb: 1.5;
 $lha: 1.25;
 
@@ -37,3 +39,26 @@ $danger: $red;
 $warning: $yellow;
 $success: $green;
 $info: $blue;
+
+$brand-red:  #F14636;
+$brand-blue: #34495e;
+
+// Buttons
+
+$btn-height: 6rem;
+$btn-padding-x: 2rem;
+$btn-border-color: $brand-red;
+$btn-border-width: 1px;
+$btn-border-radius: 3px;
+$btn-bg-color: $white;
+$btn-text-color: $brand-red;
+
+// Form controls
+
+$input-height: 6rem;
+$input-padding-x: 2rem;
+$input-border-color: $grey;
+$input-border-width: 1px;
+$input-border-radius: 0;
+$input-bg-color: transparent;
+$input-placeholder-color: $light;

@@ -1,0 +1,16 @@
+// Quote
+
+.moduleQuote {
+
+    blockquote {
+        font-size: 2rem;
+        text-align: center;
+
+        &::before {
+            content: '"';
+        }
+        &::after {
+            content: '"';
+        }
+    }
+}
