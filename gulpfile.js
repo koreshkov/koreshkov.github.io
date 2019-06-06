@@ -94,8 +94,11 @@ gulp.task('scripts', (callback) => {
     });
 });
 
+// DEFAULT GULP TASKS
+gulp.task('build', gulp.parallel('html', 'styles', 'scripts'));
+
 // server
-gulp.task('server', ['default'], () => {
+gulp.task('server', gulp.series('build', () => {
     browserSync({
         logPrefix: gutil.colors.bold.white(projName.toUpperCase()),
         server: {
@@ -112,10 +115,10 @@ gulp.task('server', ['default'], () => {
         },
         online: true
     });
-});
+}));
 
 // Watch
-gulp.task('watch', ['server'], () => {
+gulp.task('watch', gulp.series('server', () => {
 
     watch(['./scss/**/*.scss'], () => {
         browserSync.notify('Styles updating!');
@@ -137,9 +140,4 @@ gulp.task('watch', ['server'], () => {
             browserSync.reload();
         });
     });
-});
-
-// DEFAULT GULP TASKS
-gulp.task('default', ['html', 'styles', 'scripts'], () => {
-    // console.log('gulp: ', gulp);
-});
+}));
