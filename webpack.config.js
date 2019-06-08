@@ -1,5 +1,6 @@
-const webpack       = require('webpack');
-const path          = require('path');
+const webpack = require('webpack');
+const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const env = process.env.NODE_ENV;
 
@@ -16,6 +17,7 @@ module.exports = {
     devtool: 'source-maps',
     resolve: {
         modules: ['node_modules'],
+        extensions: ['*', '.js', '.vue', '.json'],
         descriptionFiles: ['package.json'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js'
@@ -23,9 +25,16 @@ module.exports = {
     },
     module: {
         rules: [{
+            test: /\.vue$/,
+            exclude: /(node_modules)/,
+            loader: 'vue-loader'
+          }, {
             test: /\.js$/,
             exclude: /(node_modules)/,
             use: 'babel-loader'
         }]
-    }
+    },
+    plugins: [
+        new VueLoaderPlugin()
+    ]
 };

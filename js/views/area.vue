@@ -1,22 +1,24 @@
+<template>
+    <div class="unit-7">
+        <div class="module-rte scroll-fade" v-if="showSkills(area.name)" v-for="(area, i) in skills" :key="i">
+            <label class="label">/skills</label>
+            <h1 v-html="area.title"></h1>
+            <div class="row">
+                <div :class="'col-' + Math.floor(12 / area.items.length)" v-for="(skill, i) in area.items" :key="i">
+                    <img class="skill-icon" :src="'/images/' + skill.icon" v-if="skill.icon">
+                    <h3 class="skill-title">{{skill.title}}</h3>
+                    <p v-html="skill.summary"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
 export default {
     metaInfo: {
         title: 'Skills'
     },
-    template: `
-        <div class="unit-7">
-            <div class="module-rte scroll-fade" v-if="showSkills(area.name)" v-for="area in skills">
-                <label class="label">/skills</label>
-                <h1 v-html="area.title"></h1>
-                <div class="row">
-                    <div :class="'col-' + Math.floor(12 / area.items.length)" v-for="skill in area.items">
-                        <img class="skill-icon" :src="'/images/' + skill.icon" v-if="skill.icon">
-                        <h3 class="skill-title">{{skill.title}}</h3>
-                        <p v-html="skill.summary"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `,
     data() {
         return {
             skills: [{
@@ -88,3 +90,4 @@ export default {
         }
     }
 };
+</script>

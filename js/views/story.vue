@@ -1,16 +1,18 @@
+<template>
+    <p-section :backdrop="'bg-r-6'">
+        <div class="unit-2 scroll-fade">
+        </div>
+        <transition name="scroll" mode="out-in">
+            <router-view :key="$route.path"></router-view>
+        </transition>
+    </p-section>
+</template>
+
+<script>
 export default {
     metaInfo: {
         title: 'Story'
     },
-    template: `
-        <p-section :backdrop="'bg-r-6'">
-            <div class="unit-2 scroll-fade">
-            </div>
-            <transition name="scroll" mode="out-in">
-                <router-view :key="$route.path"></router-view>
-            </transition>
-        </p-section>
-    `,
     data() {
         return {
             animationName: 'year-up'
@@ -40,3 +42,6 @@ export default {
         });
     }
 };
+</script>
+
+

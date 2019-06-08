@@ -127,7 +127,7 @@ gulp.task('watch', gulp.series('server', () => {
         });
     });
 
-    watch(['./js/**/*.js'], () => {
+    watch(['./js/**/*.js', './js/**/*.vue'], () => {
         browserSync.notify('Scripts updating!');
         gulp.start(['scripts'], () => {
             browserSync.reload('*.js');

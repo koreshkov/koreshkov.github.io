@@ -38,10 +38,12 @@
     "gulp-util": "^3.0.8",
     "gulp-watch": "^5.0.1",
     "postcss-clearfix": "^2.0.1",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
     "webpack": "^4.19.1"
   },
   "dependencies": {
-    "vue": "^2.5.17",
+    "vue": "^2.6.10",
     "vue-meta": "^1.5.5",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1",

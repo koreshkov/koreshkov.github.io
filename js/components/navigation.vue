@@ -1,14 +1,16 @@
+<template>
+    <nav class="nav" :class="$route.meta.navigationTheme">
+        <ul>
+            <li v-for="(navGroup, i) in navigation" :key="i">
+                <router-link :to="navGroup[0]" :class="{'active': isActive(navGroup)}"></router-link>
+            </li>
+        </ul>
+    </nav>
+</template>
+
+<script>
 export default {
     name: 'PNav',
-    template: `
-        <nav class="nav" :class="$route.meta.navigationTheme">
-            <ul>
-                <li v-for="navGroup in navigation">
-                    <router-link :to="navGroup[0]" :class="{'active': isActive(navGroup)}"></router-link>
-                </li>
-            </ul>
-        </nav>
-    `,
     data: () => ({
         isScrolling: false
     }),
@@ -61,3 +63,4 @@ export default {
         });
     }
 }
+</script>
