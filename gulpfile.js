@@ -1,20 +1,17 @@
-'use strict';
-
 const gulp              = require('gulp');
 const pug               = require('gulp-pug');
-const sourcemaps        = require('gulp-sourcemaps');
-const rename            = require('gulp-rename');
-const plumber           = require('gulp-plumber');
-const gutil             = require('gulp-util');
 const sass              = require('gulp-sass');
-const postcss           = require('gulp-postcss');
-const gulpif            = require('gulp-if');
-const watch             = require('gulp-watch');
-const browserSync       = require('browser-sync');
 const webpack           = require('webpack');
 const webpackConfig     = require('./webpack.config');
+const browserSync       = require('browser-sync');
+const gutil             = require('gulp-util');
+const plumber           = require('gulp-plumber');
+const gulpif            = require('gulp-if');
+const sourcemaps        = require('gulp-sourcemaps');
+const rename            = require('gulp-rename');
+const postcss           = require('gulp-postcss');
+const autoprefixer      = require('autoprefixer');
 
-const projName          = "Vue test";
 const production        = process.env.NODE_ENV === 'production' ? true : false;
 const browserSupport    = [
     'IE >= 10',
@@ -26,28 +23,9 @@ const browserSupport    = [
     'Android >= 4.4'
 ];
 
-// HTML
-gulp.task('html', () => {
-    return gulp.src(['./pug/*.pug'])
-    .pipe(pug())
-        .pipe(plumber({
-            errorHandler: function (err) {
-                gutil.log('Filename: ', gutil.colors.bold.red(err.file));
-                gutil.log('Linenumber: ', gutil.colors.bold.red(err.line));
-                gutil.log('Extract: ', gutil.colors.bold.red(err.message));
-                gutil.beep();
-                this.emit('end');
-            }
-        }))
-        .pipe(gulp.dest('./'))
-        .on('error', gutil.log);
-});
-
-// Styles
-gulp.task('styles', () => {
+function styles() {
     const processors = [
-        require('autoprefixer')({browsers: browserSupport}),
-        require('postcss-clearfix')
+        autoprefixer({browsers: browserSupport})
     ];
 
     return gulp.src(['./scss/screen.scss'])
@@ -68,13 +46,30 @@ gulp.task('styles', () => {
         .pipe(rename(function(path){
             path.basename = path.basename + '.min';
         }))
-        // .pipe(gulpif(!production, sourcemaps.write('./', {includeContent: false, sourceRoot: conf.css.src})))
         .pipe(gulp.dest('./content/css'))
+        .pipe(browserSync.stream())
         .on('error', gutil.log);
-});
+}
+gulp.task(styles);
 
-// scripts
-gulp.task('scripts', (callback) => {
+function html() {
+    return gulp.src(['./pug/*.pug'])
+    .pipe(pug())
+    .pipe(plumber({
+        errorHandler: function (err) {
+            gutil.log('Filename: ', gutil.colors.bold.red(err.file));
+            gutil.log('Linenumber: ', gutil.colors.bold.red(err.line));
+            gutil.log('Extract: ', gutil.colors.bold.red(err.message));
+            gutil.beep();
+            this.emit('end');
+        }
+    }))
+    .pipe(gulp.dest('./'))
+    .on('error', gutil.log);
+}
+gulp.task(html);
+
+function scripts(callback) {
     webpack(webpackConfig, function(err, stats) {
         if (err){
             throw new gutil.PluginError('webpack', err);
@@ -92,52 +87,17 @@ gulp.task('scripts', (callback) => {
 
         callback();
     });
-});
+}
+gulp.task(scripts);
 
-// DEFAULT GULP TASKS
-gulp.task('build', gulp.parallel('html', 'styles', 'scripts'));
-
-// server
-gulp.task('server', gulp.series('build', () => {
-    browserSync({
-        logPrefix: gutil.colors.bold.white(projName.toUpperCase()),
+function watch() {
+    browserSync.init({
         server: {
             baseDir: './'
-        },
-        startPath: './index.html',
-        index: 'index.html',
-        open: true,
-        directory: true,
-        ghostMode: {
-            click: true,
-            forms: true,
-            scroll: true
-        },
-        online: true
+        }
     });
-}));
-
-// Watch
-gulp.task('watch', gulp.series('server', () => {
-
-    watch(['./scss/**/*.scss'], () => {
-        browserSync.notify('Styles updating!');
-        gulp.start(['styles'], () => {
-            browserSync.reload('*.css');
-        });
-    });
-
-    watch(['./js/**/*.js', './js/**/*.vue'], () => {
-        browserSync.notify('Scripts updating!');
-        gulp.start(['scripts'], () => {
-            browserSync.reload('*.js');
-        });
-    });
-
-    watch(['./pug/**/*.pug'], () => {
-        browserSync.notify('HTML updating!');
-        gulp.start(['html'], () => {
-            browserSync.reload();
-        });
-    });
-}));
+    gulp.watch('./scss/**/*.scss', gulp.series('styles'));
+    gulp.watch('./pug/**/*.pug', gulp.series('html')).on('change', browserSync.reload);
+    gulp.watch(['./js/**/*.js', './js/**/*.vue'], gulp.series('scripts', browserSync.reload));
+}
+gulp.task(watch);
